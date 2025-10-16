@@ -21,7 +21,7 @@ OBJS := $(BUILD_DIR)/boot.o $(BUILD_DIR)/kernel.o $(BUILD_DIR)/ascii.o
 
 ISO_DIR := iso
 ISO_BOOT := $(ISO_DIR)/boot
-ISO := myos.iso
+ISO := kfs.iso
 
 # === RULES ===
 
