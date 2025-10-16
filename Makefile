@@ -15,9 +15,9 @@ CFLAGS := -m32 -ffreestanding -fno-builtin -fno-exceptions -fno-stack-protector 
 ASFLAGS := -f elf32
 
 # Sources
-C_SOURCES := kernel.c
+C_SOURCES := kernel.c ascii.c 
 ASM_SOURCES := boot.asm
-OBJS := $(BUILD_DIR)/boot.o $(BUILD_DIR)/kernel.o
+OBJS := $(BUILD_DIR)/boot.o $(BUILD_DIR)/kernel.o $(BUILD_DIR)/ascii.o 
 
 ISO_DIR := iso
 ISO_BOOT := $(ISO_DIR)/boot
@@ -39,7 +39,7 @@ $(TARGET): $(OBJS)
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(BUILD_DIR)
 	@echo "[GCC] Compiling $<"
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I includes -c $< -o $@
 
 # Assemble ASM source to object
 $(BUILD_DIR)/%.o: %.asm
