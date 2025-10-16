@@ -61,4 +61,4 @@ clean:
 	@echo "[CLEAN]"
 	@rm -rf $(BUILD_DIR) $(TARGET)
 
-.PHONY: all clean
+.PHONY: all clean iso run
