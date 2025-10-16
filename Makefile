@@ -59,6 +59,6 @@ run: iso
 # Clean build artifacts
 clean:
 	@echo "[CLEAN]"
-	@rm -rf $(BUILD_DIR) $(TARGET)
+	@rm -rf $(BUILD_DIR) $(ISO_DIR) $(TARGET)
 
 .PHONY: all clean iso run
