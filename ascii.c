@@ -13,7 +13,7 @@ const char *giant_42[] = {
 };
 
 void draw_42(int x, int y) {
-    char *video = (char*)0xb8000;
+    char *video = (char*)VIDEO_MEMORY;
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 24; ++col) {
             char c = giant_42[row][col];
@@ -31,7 +31,7 @@ void draw_42(int x, int y) {
 }
 
 void clear_screen() {
-    char *video = (char*)0xb8000;
+    char *video = (char*)VIDEO_MEMORY;
     for (int i = 0; i < VGA_WIDTH * VGA_HEIGHT; ++i) {
         video[2*i] = ' ';
         video[2*i+1] = WHITE_ON_BLACK;

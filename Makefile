@@ -15,9 +15,9 @@ CFLAGS := -m32 -ffreestanding -fno-builtin -fno-exceptions -fno-stack-protector 
 ASFLAGS := -f elf32
 
 # Sources
-C_SOURCES := kernel.c ascii.c 
+C_SOURCES := kernel.c ascii.c printf.c 
 ASM_SOURCES := boot.asm
-OBJS := $(BUILD_DIR)/boot.o $(BUILD_DIR)/kernel.o $(BUILD_DIR)/ascii.o 
+OBJS := $(BUILD_DIR)/boot.o $(BUILD_DIR)/kernel.o $(BUILD_DIR)/ascii.o $(BUILD_DIR)/printf.o
 
 ISO_DIR := iso
 ISO_BOOT := $(ISO_DIR)/boot
