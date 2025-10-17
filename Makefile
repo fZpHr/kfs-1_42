@@ -1,20 +1,14 @@
-# === CONFIGURATION ===
-
-# Output binary name
 TARGET := kernel.bin
 BUILD_DIR := build
 
-# Tools (host GCC + NASM)
 CC := gcc
 LD := ld
 AS := nasm
 OBJCOPY := objcopy
 
-# Flags to make GCC act like a freestanding compiler
 CFLAGS := -m32 -ffreestanding -fno-builtin -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs -nostartfiles
 ASFLAGS := -f elf32
 
-# Sources
 C_SOURCES := kernel.c ascii.c printf.c 
 ASM_SOURCES := boot.asm
 OBJS := $(BUILD_DIR)/boot.o $(BUILD_DIR)/kernel.o $(BUILD_DIR)/ascii.o $(BUILD_DIR)/printf.o
@@ -56,9 +50,8 @@ iso: $(BUILD_DIR)/kernel.elf
 run: iso
 	qemu-system-i386 -cdrom $(ISO)
 
-# Clean build artifacts
 clean:
 	@echo "[CLEAN]"
 	@rm -rf $(BUILD_DIR) $(TARGET)
 
-.PHONY: all clean
+.PHONY: all clean iso run
