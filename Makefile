@@ -41,7 +41,7 @@ $(BUILD_DIR)/%.o: %.asm
 	@echo "[NASM] Assembling $<"
 	@$(AS) $(ASFLAGS) $< -o $@
 
-iso: $(BUILD_DIR)/kernel.elf
+iso: $(TARGET)
 	mkdir -p $(ISO_BOOT)/grub
 	cp $(BUILD_DIR)/kernel.elf $(ISO_BOOT)/
 	cp grub.cfg $(ISO_BOOT)/grub/
@@ -52,6 +52,6 @@ run: iso
 
 clean:
 	@echo "[CLEAN]"
-	@rm -rf $(BUILD_DIR) $(TARGET)
+	@rm -rf $(BUILD_DIR) $(TARGET) $(ISO_DIR)
 
 .PHONY: all clean iso run
